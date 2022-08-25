@@ -1,0 +1,16 @@
+subprojects {
+    apply plugin: 'java'
+
+    version = '1.0'
+    group = 'io.github.shahroozsabet'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    }
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
+}

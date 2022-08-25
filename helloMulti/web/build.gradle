@@ -1,0 +1,12 @@
+plugins {
+    id 'war'
+    id 'org.gretty' version '4.0.3'
+}
+
+dependencies {
+    implementation project(':data')
+    compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.0.0'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.13.3'
+}
+
+gretty.httpPort = 8091
