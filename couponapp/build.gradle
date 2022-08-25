@@ -1,11 +1,14 @@
-subprojects{
-apply plugin: 'application'
+subprojects {
+    apply plugin: 'application'
 
-repositories {
-    mavenCentral()
-}
+    version = '1.0'
+    group = 'io.github.shahroozsabet'
 
-dependencies {
-    testImplementation 'junit:junit:4.13'
-}
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation 'junit:junit:4.13'
+    }
 }
