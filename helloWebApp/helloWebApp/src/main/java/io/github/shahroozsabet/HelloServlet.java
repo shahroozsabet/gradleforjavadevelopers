@@ -17,7 +17,7 @@ public class HelloServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String username = request.getParameter("username");
-        request.setAttribute("username", "hello " + username);
+        request.setAttribute("username", "Hello " + username);
         request.getRequestDispatcher("response.jsp").forward(request, response);
     }
 }

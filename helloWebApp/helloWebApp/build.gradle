@@ -1,6 +1,8 @@
 plugins {
     id 'war'
     id 'org.gretty' version '4.0.3'
+    id 'jacoco'
+    id "org.sonarqube" version "3.4.0.2513"
 }
 
 repositories {
@@ -11,6 +13,7 @@ dependencies {
     compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.0.0'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.13.3'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.7.0'
 }
 
 tasks.named('test') {
@@ -18,3 +21,6 @@ tasks.named('test') {
 }
 
 gretty.httpPort = 8091
+
+test.finalizedBy jacocoTestReport
+jacocoTestReport.dependsOn test
