@@ -11,9 +11,9 @@ import com.bharath.gradle.MyAWSPlugin
 plugins {
     // Apply the java plugin to add support for Java
     id 'war'
-    id 'org.gretty' version '4.0.0'
+    id 'org.gretty' version '4.0.3'
     id 'jacoco'
-    id 'org.sonarqube' version '3.0'
+    id "org.sonarqube" version "3.4.0.2513"
 }
 
 repositories {
@@ -23,13 +23,18 @@ repositories {
 }
 
 dependencies {
-  compileOnly 'javax.servlet:javax.servlet-api:3.1.0'
-  implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.2'
-  testImplementation group: 'junit', name: 'junit', version: '4.4'
+    compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.0.0'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.11.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.7.0'
 
 }
 
-gretty.httpPort=8090
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+gretty.httpPort = 8090
 
 apply plugin: MyAWSPlugin
 
